@@ -160,8 +160,6 @@ body{
 }
 
 .text p {
-  
-    padding: 1.3rem;
     text-align: center;
 }
 
@@ -319,6 +317,35 @@ body{
         line-height: 1;
     }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.footer-animate-up {
+  animation: fadeInUp 1.5s forwards;
+}
+
+.footer-animate-down {
+  animation: fadeOutDown 1.5s forwards;
+}
   
   @media screen and (min-width: 24.375em) {
     .legal .legal__links {
