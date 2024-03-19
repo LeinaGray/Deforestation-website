@@ -9,11 +9,11 @@ body{
 *::-webkit-scrollbar{
     width: 0;
 }
-.container{
+/*FIX: STICKY FOOTER THAT STICKS AND SHOWS UP EARLY ON TOP OF THE PAGE*/
+/* .container{
     overflow: hidden;
     height: max-content;
-
-}
+} */
 .banner{
     height: 50vw;
     position: relative;
