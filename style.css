@@ -2,7 +2,11 @@
 body{
     background-color: #010302;
     margin :0;
-    font-family: 'Josefin Sans', sans-serif;    font-size: 15px;
+    font-family: 'Josefin Sans', sans-serif;    
+    font-size: 15px;
+    line-height: 1.15rem;
+    letter-spacing: 0.2px;
+    word-spacing: 1.5px;
     overflow-x: hidden;
 }
 
@@ -28,6 +32,7 @@ body{
     background-size: 100%;
     background-position: center bottom;
     transition: 0.1s;
+    line-height: normal;
 }
 .banner .bg:nth-child(1){
     background-image: url(images/banner_4.png);
@@ -71,7 +76,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    padding: 30px 200px 60px 200px;
 }
 .tab::before{
     position: absolute;
@@ -99,6 +104,9 @@ body{
     max-width: 90%;
     color: #eee;
 }
+.content h2 {
+  line-height: 1.8rem;
+}
 
 .fade-in-scroll-visible {
     opacity: 1 !important; 
@@ -106,7 +114,7 @@ body{
 }
 
 .tab.tab2 .content{
-    color: #eee;
+    color: #b7b7b7;
     width: 900px;
     max-width: 90%;
 }
@@ -120,7 +128,7 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 .portrait-images img {
@@ -170,10 +178,10 @@ body{
     display: flex;
     flex-flow: row wrap;
     padding: 30px 200px 60px 200px;
+    margin-top: 100px;
+    margin-top: 100px;
     color: #b7b7b7;
-    /* background-color: #0103; */
     background: linear-gradient(to top, #010302 0%, transparent 20%, #010302 80%);
-    /* border-top: 1px solid #e5e5e5; */
   }
   
   .footer > * {
