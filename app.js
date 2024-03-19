@@ -73,3 +73,24 @@ function checkScrollDirectionAndAnimateImages() {
 
 document.addEventListener('DOMContentLoaded', checkScrollDirectionAndAnimateImages);
 window.addEventListener('scroll', checkScrollDirectionAndAnimateImages);
+let lastScroll = 0;
+const footer = document.querySelector('.footer'); // Ensure this selector matches your footer
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+
+  if (currentScroll <= 0) {
+    footer.classList.remove('footer-animate-up', 'footer-animate-down');
+    return;
+  }
+  
+  if (currentScroll > lastScroll && !footer.classList.contains('footer-animate-up')) {
+    footer.classList.remove('footer-animate-down');
+    footer.classList.add('footer-animate-up');
+  } else if (currentScroll < lastScroll && footer.classList.contains('footer-animate-up')) {
+    footer.classList.remove('footer-animate-up');
+    footer.classList.add('footer-animate-down');
+  }
+
+  lastScroll = currentScroll;
+});
