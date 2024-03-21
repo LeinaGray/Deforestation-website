@@ -6,29 +6,32 @@ let heightDefault = container.offsetHeight;
 let topBefore = 0;
 let body = document.querySelector('body');
 
-// Adjusted to allow natural scrolling behavior
 window.addEventListener('wheel', function(event){
+    event.preventDefault();
     const scrollSpeed = 0.2;
     const scrollValue = window.scrollY + (event.deltaY/3) * scrollSpeed;
+    window.scrollTo(0, scrollValue);
+
+
 
     let top = scrollValue;
     listBg.forEach((bg, index) => {
         if(index != 0){
             bg.animate({
-                transform: 'translateY(${(-top*index)}px)'
+                transform: `translateY(${(-top*index)}px)`
             }, { duration: 1000, fill: "forwards" });
         }
         if(index == listBg.length - 1){
             tabs.forEach(tab => {
                 tab.animate({
-                    transform: 'translateY(${(-top*index)}px)'
+                    transform: `translateY(${(-top*index)}px)`
                 }, { duration: 500, fill: "forwards" });
             })
 
             if(topBefore < top){
                 setHeight = heightDefault-window.scrollY*index;
                 container.animate({
-                    height: '${(setHeight + 100)}px'
+                    height: `${(setHeight + 100)}px`
                 }, { duration: 50, fill: "forwards" });
                 topBefore = window.scrollY;
             }
@@ -39,15 +42,14 @@ window.addEventListener('wheel', function(event){
                 let transformContent = window.innerHeight*(index+1) - (tab.offsetTop - top);
                 console.log(tab);
                 content.animate({
-                    transform: 'translateY(${(-transformContent + (100*index))}px)'
+                    transform: `translateY(${(-transformContent + (100*index))}px)`
                 }, { duration: 500, fill: "forwards" });
             }
         })
-    });
-    // Note: Removed event.preventDefault(); to restore default scroll behavior
-}, { passive: true }); // Set to true to improve scroll performance
+    })
+}, { passive: false });
 
-// Remainder of the script for visibility animations
+
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
@@ -74,7 +76,7 @@ function checkScrollDirectionAndAnimateImages() {
 document.addEventListener('DOMContentLoaded', checkScrollDirectionAndAnimateImages);
 window.addEventListener('scroll', checkScrollDirectionAndAnimateImages);
 let lastScroll = 0;
-const footer = document.querySelector('.footer'); // Ensure this selector matches your footer
+const footer = document.querySelector('.footer');
 
 window.addEventListener('scroll', () => {
   const currentScroll = window.pageYOffset;
